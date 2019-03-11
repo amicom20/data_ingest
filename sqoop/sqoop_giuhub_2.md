@@ -29,5 +29,5 @@ acct_num = 32445
 first_name = Melissa
 last_name = Carlson
 
-결과는 스크린샷 파일 참조  :2.jpg
+hue화면은 스크린샷 파일 참조  :2.jpg
 ```
