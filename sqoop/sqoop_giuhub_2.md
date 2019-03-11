@@ -1,3 +1,5 @@
+-강준우 06001-
+
 2. This time save the same in parquet format with snappy compression. Save it in
 /loudacre/accounts/user_compressed. Provide.a screenshot of HUE with the new directory created.
 
