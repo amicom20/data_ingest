@@ -1,3 +1,5 @@
+-강준우 06001-
+
 3. Finally save in /loudacre/accounts/CA only clients whose state is from California. Save the file
 in parquet format and compressed using gzip. From the terminal, display some of the records
 that you just imported. Take a screenshot and save it as CA_only.
