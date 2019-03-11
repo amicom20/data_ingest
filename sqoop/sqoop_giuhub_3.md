@@ -48,7 +48,7 @@ first_name = Marcia
 last_name = Hall
 state = CA
 
-결과는 스크린샷 파일 참조  : 3.jpg
+hue화면은 스크린샷 파일 참조  : 3.jpg
 ```
 
 
