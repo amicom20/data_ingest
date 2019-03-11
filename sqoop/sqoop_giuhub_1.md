@@ -1,3 +1,5 @@
+-강준우 06001-
+
 1. From the accounts table, import only the primary key, along with the first name, last name to
 HDFS directory /loudacre/accounts/user_info. Please save the file in text format with tab
 delimiters.
@@ -6,6 +8,7 @@ this exercise.
 
 ```
 [training@localhost ~]$ sqoop list-tables --connect jdbc:mysql://localhost/loudacre --username training --password training
+```
 19/03/10 21:31:05 INFO sqoop.Sqoop: Running Sqoop version: 1.4.6-cdh5.7.0
 19/03/10 21:31:05 WARN tool.BaseSqoopTool: Setting your password on the command-line is insecure. Consider using -P instead.
 19/03/10 21:31:05 INFO manager.MySQLManager: Preparing to use a MySQL streaming resultset.
@@ -19,7 +22,9 @@ knowledgebase
 mostactivestations
 webpage
 
+```
 [training@localhost ~]$  mysql -h localhost -u training -p
+```
 Enter password:
 Welcome to the MySQL monitor.  Commands end with ; or \g.
 Your MySQL connection id is 335
@@ -33,7 +38,10 @@ owners.
 
 Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
 
+```
 mysql> show databases;
+```
+
 +--------------------+
 | Database           |
 +--------------------+
@@ -46,12 +54,16 @@ mysql> show databases;
 +--------------------+
 6 rows in set (0.00 sec)
 
+```
 mysql> use loudacre;
+```
 Reading table information for completion of table and column names
 You can turn off this feature to get a quicker startup with -A
 
 Database changed
+```
 mysql> show tables;
+```
 +--------------------+
 | Tables_in_loudacre |
 +--------------------+
@@ -66,7 +78,9 @@ mysql> show tables;
 +--------------------+
 8 rows in set (0.00 sec)
 
+```
 mysql> desc accounts;
+```
 +----------------+--------------+------+-----+---------+-------+
 | Field          | Type         | Null | Key | Default | Extra |
 +----------------+--------------+------+-----+---------+-------+
@@ -87,7 +101,9 @@ mysql> desc accounts;
 
 mysql> Bye
 
+```
 [training@localhost ~]$ sqoop import --connect jdbc:mysql://localhost/loudacre --username training --password training --table accounts --target-dir /loudacre/accounts/user_info --columns "acct_num,first_name,last_name" --fields-terminated-by "\t" --as-textfile
+```
 
 19/03/10 21:44:35 INFO mapreduce.ImportJobBase: Transferred 2.4947 MB in 38.3612 seconds (66.5936 KB/sec)
 19/03/10 21:44:35 INFO mapreduce.ImportJobBase: Retrieved 129761 records.
@@ -99,8 +115,11 @@ Found 5 items
 -rw-rw-rw-   1 training supergroup     649567 2019-03-10 21:44 /loudacre/accounts/user_info/part-m-00001
 -rw-rw-rw-   1 training supergroup     649000 2019-03-10 21:44 /loudacre/accounts/user_info/part-m-00002
 -rw-rw-rw-   1 training supergroup     679263 2019-03-10 21:44 /loudacre/accounts/user_info/part-m-00003
+
+```
 [training@localhost ~]$ hdfs dfs -tail /loudacre/accounts/user_info/part-m-00000
-lsh
+```
+
 32390   Olga    Lipson
 32391   Eddie   Hedrick
 32392   Alvin   Phillips
@@ -152,5 +171,3 @@ lsh
 32438   Violet  Searcy
 32439   Eunice  Myers
 32440   Robert  Huskey
-
-```
